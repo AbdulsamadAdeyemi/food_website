@@ -353,7 +353,7 @@ padding-left: 20px;
         visibility: visible;
     }
 
-    .menu-toggle {
+    #bars.menu-toggle {
         display: inline-flex;
         align-items: center;
         justify-content: center;
