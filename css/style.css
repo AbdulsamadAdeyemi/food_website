@@ -1,26 +1,36 @@
 * {
-    padding: 0;
-    margin: 0;
     box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    overflow-x: hidden;
-    font-family: sans-serif;
-    color: black;
-    transition: .5s all liner;
 }
 
-:root {
-    ---orange: rgb(241, 159, 7);
-    ---black: #1a1a1a;
-    ---light-gray: rgb(248, 248, 248);
+html {
+    scroll-behavior: smooth;
 }
 
 body {
+    margin: 0;
+    font-family: sans-serif;
+    color: black;
     background-color: var(---light-gray);
-    overflow-x: hidden;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+:focus-visible {
+    outline: 3px solid var(---orange);
+    outline-offset: 3px;
 }
 
 header {
@@ -84,7 +94,7 @@ ul a:hover {
 
 .home_img {
     width: 100%;
-    animation-name: shadow 3s liner infinite;
+
 }
 
 /* @keyframes shadow {
@@ -217,7 +227,7 @@ width: 100%;
 .items_images{
     width: 30%;
     margin: .5em;
-    box-sizing: 1em 1em 1em var(---orange) ;
+    box-shadow: 1em 1em 1em var(---orange);
 }
 .items_images img{
     width: 90%;
@@ -243,7 +253,7 @@ width: 100%;
     width:22%;
     box-shadow: 5px 5px 5px var(---orange);
     padding: 1em;
-    transform: .5s all ease-in;
+    transition: box-shadow .5s ease-in;
     
 }
 .reviews:hover{
@@ -318,10 +328,39 @@ padding-left: 20px;
     }
     .footer_fourth>.fab{
         font-size: 1.5rem;
-        margin:1em o 1em 1em  ;
+        margin: 1em 0 1em 1em;
     }
     .footer_copyright{
         text-align: center;
         font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
     }
+
+/* Mobile navigation visibility and keyboard focus */
+@media screen and (max-width: 800px) {
+    #menu_items {
+        max-height: 0;
+        height: auto;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: opacity .2s ease, max-height .2s ease;
+    }
+
+    #menu_items.show {
+        max-height: 24rem;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        padding: .4rem;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
+    }
+}
